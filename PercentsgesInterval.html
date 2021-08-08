@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentages</title>
+</head>
+<body style="background-color: #333333; color: #b983ff">
+    <input type="text" id="invoer"> 
+    <input type="button" value="Send" onclick="creatTable()">
+    <button onclick="history.go(0);">Clear</button>
+    <br>
+</body>
+<script>
+    function creatTable() {
+        var body = document.body,
+            tbl = document.createElement('table'),
+            invoer = document.getElementById("invoer").value,
+            percentages = ["05", 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95];
+
+        tbl.style.display = 'inline';
+
+        for (var i = 0; i < percentages.length; i++){
+            var tr = tbl.insertRow(),
+                td = tr.insertCell(),
+                uitkomst = invoer / 100 * percentages[i],
+                uitkomst = uitkomst.toFixed(2);
+
+                td.appendChild(document.createTextNode(percentages[i] + "%"));
+                td.appendChild(document.createTextNode(' | ' + uitkomst));
+                td.style.border = '1px solid black';
+        }
+        body.appendChild(tbl);
+    }
+</script>
+</html>
